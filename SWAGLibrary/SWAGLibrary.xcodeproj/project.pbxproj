@@ -16,6 +16,7 @@
 		CD0706CB1C4B5B3000257236 /* VTError.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0706C41C4B5B3000257236 /* VTError.m */; };
 		CD0706CC1C4B5B3000257236 /* VTNetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0706C71C4B5B3000257236 /* VTNetworkingHelper.m */; };
 		CD0706CD1C4B5B3000257236 /* VTNetworkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0706CA1C4B5B3000257236 /* VTNetworkResponse.m */; };
+		CD0706D31C4B773D00257236 /* SLBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0706D21C4B773D00257236 /* SLBook.swift */; };
 		CD0706D61C4B787500257236 /* SLNetworkParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0706D51C4B787500257236 /* SLNetworkParams.swift */; };
 		E804B29BF9F078F28F3988FA /* Pods_SWAGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9358809B6CD3D42FE151823 /* Pods_SWAGLibrary.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		CD0706C71C4B5B3000257236 /* VTNetworkingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNetworkingHelper.m; sourceTree = "<group>"; };
 		CD0706C91C4B5B3000257236 /* VTNetworkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNetworkResponse.h; sourceTree = "<group>"; };
 		CD0706CA1C4B5B3000257236 /* VTNetworkResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNetworkResponse.m; sourceTree = "<group>"; };
+		CD0706D21C4B773D00257236 /* SLBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLBook.swift; sourceTree = "<group>"; };
 		CD0706D51C4B787500257236 /* SLNetworkParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLNetworkParams.swift; sourceTree = "<group>"; };
 		E9358809B6CD3D42FE151823 /* Pods_SWAGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWAGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 		CD0706B61C4B473800257236 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CD0706D11C4B773300257236 /* SLBook */,
 				CD0706BB1C4B4C2100257236 /* NetworkModels */,
 			);
 			path = Models;
@@ -230,6 +233,14 @@
 				CD0706CA1C4B5B3000257236 /* VTNetworkResponse.m */,
 			);
 			path = VTNetworkResponse;
+			sourceTree = "<group>";
+		};
+		CD0706D11C4B773300257236 /* SLBook */ = {
+			isa = PBXGroup;
+			children = (
+				CD0706D21C4B773D00257236 /* SLBook.swift */,
+			);
+			path = SLBook;
 			sourceTree = "<group>";
 		};
 		CD0706D41C4B786D00257236 /* SLNetworkParams */ = {
@@ -363,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD0706CB1C4B5B3000257236 /* VTError.m in Sources */,
+				CD0706D31C4B773D00257236 /* SLBook.swift in Sources */,
 				CD0706CD1C4B5B3000257236 /* VTNetworkResponse.m in Sources */,
 				CD0706CC1C4B5B3000257236 /* VTNetworkingHelper.m in Sources */,
 				CD0706A71C4B458300257236 /* SWAGLibrary.xcdatamodeld in Sources */,
