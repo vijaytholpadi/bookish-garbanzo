@@ -20,6 +20,7 @@
 		CD0706D61C4B787500257236 /* SLNetworkParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0706D51C4B787500257236 /* SLNetworkParams.swift */; };
 		CD0706E01C4B985900257236 /* VTNetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0706DF1C4B985900257236 /* VTNetworkingHelper.m */; };
 		CD0706E31C4BAA9000257236 /* SLBookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0706E21C4BAA9000257236 /* SLBookDetailViewController.swift */; };
+		CD0706E61C4BC93800257236 /* SLOnboardBookViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0706E51C4BC93800257236 /* SLOnboardBookViewContoller.swift */; };
 		E804B29BF9F078F28F3988FA /* Pods_SWAGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9358809B6CD3D42FE151823 /* Pods_SWAGLibrary.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		CD0706DE1C4B985900257236 /* VTNetworkingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNetworkingHelper.h; sourceTree = "<group>"; };
 		CD0706DF1C4B985900257236 /* VTNetworkingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNetworkingHelper.m; sourceTree = "<group>"; };
 		CD0706E21C4BAA9000257236 /* SLBookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLBookDetailViewController.swift; sourceTree = "<group>"; };
+		CD0706E51C4BC93800257236 /* SLOnboardBookViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLOnboardBookViewContoller.swift; sourceTree = "<group>"; };
 		E9358809B6CD3D42FE151823 /* Pods_SWAGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWAGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 		CD0706B41C4B473700257236 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CD0706E41C4BC92F00257236 /* SLOnboardBookViewContoller */,
 				CD0706E11C4BAA8600257236 /* SLBookDetailViewController */,
 				CD0706CE1C4B617800257236 /* SLBookListViewController */,
 			);
@@ -272,6 +275,14 @@
 			path = SLBookDetailViewController;
 			sourceTree = "<group>";
 		};
+		CD0706E41C4BC92F00257236 /* SLOnboardBookViewContoller */ = {
+			isa = PBXGroup;
+			children = (
+				CD0706E51C4BC93800257236 /* SLOnboardBookViewContoller.swift */,
+			);
+			path = SLOnboardBookViewContoller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -400,6 +411,7 @@
 				CD0706D01C4B618100257236 /* SLBookListViewController.swift in Sources */,
 				CD0706A71C4B458300257236 /* SWAGLibrary.xcdatamodeld in Sources */,
 				CD0706D61C4B787500257236 /* SLNetworkParams.swift in Sources */,
+				CD0706E61C4BC93800257236 /* SLOnboardBookViewContoller.swift in Sources */,
 				CD07069F1C4B458300257236 /* SLAppDelegate.swift in Sources */,
 				CD0706E01C4B985900257236 /* VTNetworkingHelper.m in Sources */,
 				CD0706E31C4BAA9000257236 /* SLBookDetailViewController.swift in Sources */,
