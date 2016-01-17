@@ -42,7 +42,8 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     internal func addButtonPressed() {
-        
+        let onboardBookVC = self.storyboard?.instantiateViewControllerWithIdentifier("SLOnboardBookViewContoller") as! SLOnboardBookViewContoller
+        presentViewController(onboardBookVC, animated: true, completion: nil)
     }
     
     internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,7 +61,7 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     
     internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let currentBook : SLBook = self.booksArray[indexPath.row]
-
+        
         let bookDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("SLBookDetailViewController") as! SLBookDetailViewController
         bookDetailVC.bookInContext = currentBook
         self.navigationController?.pushViewController(bookDetailVC, animated: true)
