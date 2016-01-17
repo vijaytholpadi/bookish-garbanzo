@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Book List View Controller-->
@@ -65,6 +66,106 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1084" y="387"/>
+        </scene>
+        <!--Book Detail View Controller-->
+        <scene sceneID="97t-1G-jFX">
+            <objects>
+                <viewController storyboardIdentifier="SLBookDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1M2-0w-hVd" customClass="SLBookDetailViewController" customModule="SWAGLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pKR-JB-7M3"/>
+                        <viewControllerLayoutGuide type="bottom" id="NEW-hg-C0W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jro-eh-Obh" userLabel="ParentView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPe-Kx-mOJ" userLabel="BookTitleLabel">
+                                <rect key="frame" x="10" y="74" width="284" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwv-OO-yfl" userLabel="BookPublisherLabel">
+                                <rect key="frame" x="10" y="90" width="284" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jav-C7-cn8" userLabel="BookCategoriesLabel">
+                                <rect key="frame" x="10" y="98" width="284" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiX-ge-lLX" userLabel="BookLastCheckedOutLabel">
+                                <rect key="frame" x="10" y="106" width="284" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REz-lS-emX" userLabel="Checkoutbutton">
+                                <rect key="frame" x="50" y="122" width="220" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ftn-6k-JpL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Checkout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="checkoutButtonPressed:" destination="1M2-0w-hVd" eventType="touchUpInside" id="RPc-DY-vho"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mE-4E-b19" userLabel="BookAuthorLabel">
+                                <rect key="frame" x="10" y="82" width="284" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="REz-lS-emX" firstAttribute="top" secondItem="NiX-ge-lLX" secondAttribute="bottom" constant="16" id="03P-85-boA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BPe-Kx-mOJ" secondAttribute="trailing" constant="10" id="9yn-tY-xDC"/>
+                            <constraint firstItem="1mE-4E-b19" firstAttribute="width" secondItem="BPe-Kx-mOJ" secondAttribute="width" id="Atu-9h-Ud5"/>
+                            <constraint firstItem="jav-C7-cn8" firstAttribute="width" secondItem="Hwv-OO-yfl" secondAttribute="width" id="GBk-aW-NEW"/>
+                            <constraint firstItem="Hwv-OO-yfl" firstAttribute="top" secondItem="1mE-4E-b19" secondAttribute="bottom" constant="8" id="Kiv-Cv-TsX"/>
+                            <constraint firstAttribute="trailing" secondItem="REz-lS-emX" secondAttribute="trailing" constant="50" id="OgI-Ys-3WN"/>
+                            <constraint firstItem="REz-lS-emX" firstAttribute="centerX" secondItem="jro-eh-Obh" secondAttribute="centerX" id="bG7-XT-NGH"/>
+                            <constraint firstItem="jav-C7-cn8" firstAttribute="leading" secondItem="Hwv-OO-yfl" secondAttribute="leading" id="ekw-04-j2G"/>
+                            <constraint firstItem="1mE-4E-b19" firstAttribute="top" secondItem="BPe-Kx-mOJ" secondAttribute="bottom" constant="8" id="gUT-UU-buG"/>
+                            <constraint firstItem="BPe-Kx-mOJ" firstAttribute="leading" secondItem="jro-eh-Obh" secondAttribute="leading" constant="10" id="jBY-Q6-APq"/>
+                            <constraint firstItem="REz-lS-emX" firstAttribute="leading" secondItem="jro-eh-Obh" secondAttribute="leading" constant="50" id="km0-zP-4zj"/>
+                            <constraint firstItem="Hwv-OO-yfl" firstAttribute="width" secondItem="1mE-4E-b19" secondAttribute="width" id="n6z-MM-Rqs"/>
+                            <constraint firstItem="BPe-Kx-mOJ" firstAttribute="top" secondItem="pKR-JB-7M3" secondAttribute="bottom" constant="10" id="nh0-VC-x8z"/>
+                            <constraint firstItem="Hwv-OO-yfl" firstAttribute="leading" secondItem="1mE-4E-b19" secondAttribute="leading" id="pfL-bJ-b4M"/>
+                            <constraint firstItem="NiX-ge-lLX" firstAttribute="width" secondItem="jav-C7-cn8" secondAttribute="width" id="piA-b8-ftD"/>
+                            <constraint firstItem="1mE-4E-b19" firstAttribute="leading" secondItem="BPe-Kx-mOJ" secondAttribute="leading" id="piS-ao-UgN"/>
+                            <constraint firstItem="jav-C7-cn8" firstAttribute="top" secondItem="Hwv-OO-yfl" secondAttribute="bottom" constant="8" id="tPX-Zp-uR7"/>
+                            <constraint firstItem="NiX-ge-lLX" firstAttribute="top" secondItem="jav-C7-cn8" secondAttribute="bottom" constant="8" id="uUt-y7-bTq"/>
+                            <constraint firstItem="NiX-ge-lLX" firstAttribute="leading" secondItem="jav-C7-cn8" secondAttribute="leading" id="yGw-Vv-J2e"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="bookAuthorLabel" destination="1mE-4E-b19" id="Ggf-gE-2Re"/>
+                        <outlet property="bookCategoriesLabel" destination="jav-C7-cn8" id="LSz-6M-WlM"/>
+                        <outlet property="bookLastCheckedOutLabel" destination="NiX-ge-lLX" id="UIQ-nU-7HC"/>
+                        <outlet property="bookPublisherLabel" destination="Hwv-OO-yfl" id="N4e-2c-RoX"/>
+                        <outlet property="bookTitleLabel" destination="BPe-Kx-mOJ" id="zum-dB-gqL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DIN-yP-VGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1502" y="387"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="352-xN-AYO">
