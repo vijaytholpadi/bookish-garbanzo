@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
-class SLBookListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+protocol BookListDelegate {
+    func refreshBooks()
+}
+
+class SLBookListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SLOnabordBookDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var booksArray: [SLBook] = []
@@ -67,5 +71,9 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         self.navigationController?.pushViewController(bookDetailVC, animated: true)
         
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func refreshBooks() {
+        self.fetchAllBooks()
     }
 }

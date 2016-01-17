@@ -9,15 +9,26 @@
 import Foundation
 import UIKit
 
+protocol SLOnabordBookDelegate{
+    func refreshBooks()
+}
+
 class SLOnboardBookViewContoller: UIViewController {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var publisherTextField: UITextField!
     @IBOutlet weak var categoriesTextField: UITextField!
-    
+    var delegate: SLOnabordBookDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let bookListNavVC = self.presentingViewController
+        let bookListVC = bookListNavVC!.childViewControllers.first as! SLBookListViewController
+        self.delegate = bookListVC
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
@@ -29,7 +40,7 @@ class SLOnboardBookViewContoller: UIViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
             unsavedChangesAlertController.addAction(cancelAction)
             unsavedChangesAlertController.addAction(okAction)
-
+            
             presentViewController(unsavedChangesAlertController, animated: true, completion: nil)
         } else {
             self.dismissViewController()
@@ -47,6 +58,7 @@ class SLOnboardBookViewContoller: UIViewController {
     func addBook() {
         VTNetworkingHelper.sharedInstance().performRequestWithPath(SLNetworkRoutes.postAddABook(), withAuth: true, forMethod: "POST", withRequestJSONSerialized: true, withParams: SLNetworkParams.postAddABookParamsWithAuthor(self.authorTextField.text!, category: self.categoriesTextField.text!, title: self.titleTextField.text!, publisher: self.publisherTextField.text!)) { (response:VTNetworkResponse!) -> Void in
             if response.isSuccessful {
+                [self.delegate?.refreshBooks()]
                 self.dismissViewController()
             } else {
                 
