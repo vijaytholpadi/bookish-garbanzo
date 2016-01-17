@@ -6,6 +6,5 @@ target 'SWAGLibrary' do
 use_frameworks!
 
 pod 'AFNetworking', '~> 2.5.2'
-pod 'SDWebImage', '~>3.7'
 end
 
