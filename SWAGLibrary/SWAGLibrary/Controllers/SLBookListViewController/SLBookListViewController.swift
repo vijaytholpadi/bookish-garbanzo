@@ -24,6 +24,7 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         title = "Books"
         tableView.dataSource = self;
         tableView.delegate = self;
+        tableView.tableFooterView = UIView.init(frame: CGRectZero)
         
         setupNavigationBarButtons()
         fetchAllBooks()
