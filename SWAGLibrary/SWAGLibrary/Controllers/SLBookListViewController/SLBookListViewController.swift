@@ -42,7 +42,7 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     internal func addButtonPressed() {
-       
+        
     }
     
     internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,5 +56,15 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         tableViewcell.textLabel?.text = currentBook.title
         tableViewcell.detailTextLabel?.text = currentBook.author
         return tableViewcell;
+    }
+    
+    internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let currentBook : SLBook = self.booksArray[indexPath.row]
+
+        let bookDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("SLBookDetailViewController") as! SLBookDetailViewController
+        bookDetailVC.bookInContext = currentBook
+        self.navigationController?.pushViewController(bookDetailVC, animated: true)
+        
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
