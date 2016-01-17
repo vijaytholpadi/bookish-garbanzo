@@ -21,7 +21,19 @@ class SLOnboardBookViewContoller: UIViewController {
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        self.dismissViewController()
+        if self.areAnyfieldFilled() {
+            let unsavedChangesAlertController = UIAlertController(title: "Uh-oh!", message: "There are unsaved changes. Do you want to discard them?", preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Destructive, handler: { (alertAction: UIAlertAction) -> Void in
+                self.dismissViewController()
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+            unsavedChangesAlertController.addAction(cancelAction)
+            unsavedChangesAlertController.addAction(okAction)
+
+            presentViewController(unsavedChangesAlertController, animated: true, completion: nil)
+        } else {
+            self.dismissViewController()
+        }
     }
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
@@ -46,8 +58,12 @@ class SLOnboardBookViewContoller: UIViewController {
         return ((self.titleTextField.text?.isEmpty)! || (self.authorTextField.text?.isEmpty)!)
     }
     
+    func areAnyfieldFilled() -> Bool {
+        return !(self.titleTextField.text?.isEmpty)! || !(self.authorTextField.text?.isEmpty)! || !(self.publisherTextField.text?.isEmpty)! || !(self.categoriesTextField.text?.isEmpty)!
+    }
+    
     func showInsufficientDetailsAlert() {
-        let insufficientDetailsAlertController = UIAlertController(title: "Error", message: "Title and Author fields are mandatory ", preferredStyle: .Alert)
+        let insufficientDetailsAlertController = UIAlertController(title: "Error", message: "Title and Author fields are mandatory", preferredStyle: .Alert)
         let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         insufficientDetailsAlertController.addAction(okAction)
         
