@@ -57,6 +57,7 @@ class SLBookDetailViewController: UIViewController {
         let checkoutAlertController = UIAlertController(title: "Almost there", message: "Please enter your name", preferredStyle: .Alert)
         checkoutAlertController.addTextFieldWithConfigurationHandler { (textfield:UITextField) -> Void in
             textfield.placeholder = "Name"
+            textfield.addTarget(self, action: "alertControllerTextChanged:", forControlEvents: .EditingChanged)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alertAction:UIAlertAction) -> Void in
@@ -74,9 +75,19 @@ class SLBookDetailViewController: UIViewController {
                 }
             })
         }
-        
+        okAction.enabled = false;
         checkoutAlertController.addAction(cancelAction)
         checkoutAlertController.addAction(okAction)
         presentViewController(checkoutAlertController, animated: true, completion: nil)
+    }
+    
+    func alertControllerTextChanged(sender:AnyObject) {
+        let alertTF = sender as! UITextField
+        var responder : UIResponder = alertTF
+        while !(responder is UIAlertController) {
+        responder = responder.nextResponder()!
+        }
+        let alertController = responder as! UIAlertController
+        (alertController.actions[1] as UIAlertAction).enabled = (alertTF.text != "")
     }
 }
