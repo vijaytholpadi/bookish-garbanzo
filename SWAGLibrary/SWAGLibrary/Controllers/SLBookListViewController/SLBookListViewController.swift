@@ -33,7 +33,7 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     internal func fetchAllBooks() {
         VTNetworkingHelper.sharedInstance().performRequestWithPath(SLNetworkRoutes.getAllBooksAPI(), withAuth: true, withRequestJSONSerialized: true) { (response : VTNetworkResponse!) -> Void in
             if response.isSuccessful {
-                self.booksArray = SLBook.getBookArrayFromRawArray(response.data as! Array<[String : String]>)
+                self.booksArray = SLBook.getBookArrayFromRawArray(response.data as! [[String : AnyObject]])
             } else {
                 
             }

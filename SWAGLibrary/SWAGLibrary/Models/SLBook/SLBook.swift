@@ -26,22 +26,22 @@ class SLBook: NSObject {
         
     }
     
-    class func getBookArrayFromRawArray(rawArray:Array<[String:String]>) -> [SLBook] {
+    class func getBookArrayFromRawArray(rawArray:[[String:AnyObject]]) -> [SLBook] {
         
         var booksArray : [SLBook] = Array()
         
-        for item in rawArray {
-            let book : SLBook = SLBook.init()
-            book.title = item["title"]
-            book.author = item["author"]
-            book.category = item["categories"]
-            book.publisher = item["publisher"]
-            book.lastCheckedOutDate = item["lastCheckedOut"]
-            book.lastCheckedOutBy = item["lastCheckedOutBy"]
-            book.urlString = item["url"]
-
-            booksArray.append(book)
-        }
+            for item in rawArray {
+                let book : SLBook = SLBook.init()
+                book.title = item["title"] as? String
+                book.author = item["author"] as? String
+                book.category = item["categories"] as? String
+                book.publisher = item["publisher"] as? String
+                book.lastCheckedOutDate = item["lastCheckedOut"] as? String
+                book.lastCheckedOutBy = item["lastCheckedOutBy"] as? String
+                book.urlString = item["url"] as? String
+                
+                booksArray.append(book)
+            }
         return booksArray
     }
 }
