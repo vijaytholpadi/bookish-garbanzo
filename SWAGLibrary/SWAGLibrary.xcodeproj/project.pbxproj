@@ -13,6 +13,7 @@
 		CD0706A71C4B458300257236 /* SWAGLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD0706A51C4B458300257236 /* SWAGLibrary.xcdatamodeld */; };
 		CD0706A91C4B458300257236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0706A81C4B458300257236 /* Assets.xcassets */; };
 		CD0706AC1C4B458300257236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0706AA1C4B458300257236 /* LaunchScreen.storyboard */; };
+		CD0706BE1C4B4C4800257236 /* SLNetworkRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0706BD1C4B4C4800257236 /* SLNetworkRoutes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CD0706A81C4B458300257236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD0706AB1C4B458300257236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD0706AD1C4B458300257236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD0706BD1C4B4C4800257236 /* SLNetworkRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLNetworkRoutes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		CD0706B61C4B473800257236 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CD0706BB1C4B4C2100257236 /* NetworkModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,6 +153,22 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CD0706BB1C4B4C2100257236 /* NetworkModels */ = {
+			isa = PBXGroup;
+			children = (
+				CD0706BC1C4B4C2100257236 /* SLNetworkRoutes */,
+			);
+			path = NetworkModels;
+			sourceTree = "<group>";
+		};
+		CD0706BC1C4B4C2100257236 /* SLNetworkRoutes */ = {
+			isa = PBXGroup;
+			children = (
+				CD0706BD1C4B4C4800257236 /* SLNetworkRoutes.swift */,
+			);
+			path = SLNetworkRoutes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +279,7 @@
 			files = (
 				CD0706A71C4B458300257236 /* SWAGLibrary.xcdatamodeld in Sources */,
 				CD07069F1C4B458300257236 /* SLAppDelegate.swift in Sources */,
+				CD0706BE1C4B4C4800257236 /* SLNetworkRoutes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
