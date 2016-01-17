@@ -30,8 +30,11 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     internal func setupNavigationBarButtons() {
-        let addButton :UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addButtonPressed")
+        let addButton : UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addButtonPressed")
         navigationItem.leftBarButtonItem = addButton
+        
+        let deleteAllButton : UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Trash, target: self, action: "deleteAllButtonPressed")
+        navigationItem.rightBarButtonItem = deleteAllButton
     }
     
     internal func fetchAllBooks() {
@@ -48,6 +51,24 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     internal func addButtonPressed() {
         let onboardBookVC = storyboard?.instantiateViewControllerWithIdentifier("SLOnboardBookViewContoller") as! SLOnboardBookViewContoller
         presentViewController(onboardBookVC, animated: true, completion: nil)
+    }
+    
+    internal func deleteAllButtonPressed() {
+        let deleteAllConfirmationAlertController = UIAlertController(title: "Warning", message: "Are you sure you want to delete all the books?", preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (UIAlertAction) -> Void in
+        }
+        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (UIAlertAction) -> Void in
+            VTNetworkingHelper.sharedInstance().performRequestWithPath(SLNetworkRoutes.deleteAllBooksAPI(), withAuth: true, forMethod: "DELETE", withRequestJSONSerialized: true, withParams: nil) { (response:VTNetworkResponse!) -> Void in
+                if response.isSuccessful {
+                    self.refreshBooks()
+                } else {
+                }
+            }
+        }
+        
+        deleteAllConfirmationAlertController.addAction(cancelAction)
+        deleteAllConfirmationAlertController.addAction(deleteAction)
+        presentViewController(deleteAllConfirmationAlertController, animated: true, completion: nil)
     }
     
     internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
