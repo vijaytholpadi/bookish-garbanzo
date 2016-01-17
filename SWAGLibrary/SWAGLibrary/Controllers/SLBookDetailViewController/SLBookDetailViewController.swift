@@ -22,12 +22,12 @@ class SLBookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        self.title = "Detail"
         self.setupBookDetails()
         self.setupNavigationBarButtons()
     }
     
     func setupBookDetails() {
-        self.title = self.bookInContext?.title
         self.bookTitleLabel.text = self.bookInContext?.title
         self.bookAuthorLabel.text = self.bookInContext?.author
         self.bookPublisherLabel.text = String("Publisher: " + (self.bookInContext?.publisher)!)
