@@ -10,30 +10,30 @@ import Foundation
 
 class SLNetworkRoutes : NSObject {
 //MARK: Server URL configuration
-    let rootURL: String = "http://prolific-interview.herokuapp.com/568aaa510851c100096d0232";
+    static let rootURL: String = "http://prolific-interview.herokuapp.com/568aaa510851c100096d0232";
     
 //MARK: Class functions returning route to a particular endpoint
-    func getaBookAPIForBookAtURLString(bookURLString : String) -> String {
+    class func getaBookAPIForBookAtURLString(bookURLString : String) -> String {
         return String (self.rootURL + bookURLString)
     }
     
-    func updateABookAPIForBookAtURLString(bookURLString : String) -> String {
+    class func putUpdateBookAPIForBookAtURLString(bookURLString : String) -> String {
         return String (self.rootURL + bookURLString)
     }
     
-    func deleteABookAPIForBookAtURLString(bookURLString : String) -> String {
+    class func deleteBookAPIForBookAtURLString(bookURLString : String) -> String {
         return String (self.rootURL + bookURLString)
     }
     
-    func postAddABook() -> String {
+    class func postAddABook() -> String {
         return String (self.rootURL + "/books/")
     }
     
-    func getAllBooksAPI() -> String {
+    class func getAllBooksAPI() -> String {
         return String (self.rootURL + "/books/")
     }
     
-    func deleteAllBooksAPI() -> String {
+    class func deleteAllBooksAPI() -> String {
         return String (self.rootURL + "/clean")
     }
 }
