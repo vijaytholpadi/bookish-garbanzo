@@ -81,6 +81,7 @@
 		CD07069D1C4B458300257236 /* SWAGLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				CD0706BF1C4B55DE00257236 /* Application */,
 				CD0706B31C4B473700257236 /* Categories */,
 				CD0706B41C4B473700257236 /* Controllers */,
 				CD0706B51C4B473800257236 /* Library */,
@@ -170,6 +171,14 @@
 				CD0706BD1C4B4C4800257236 /* SLNetworkRoutes.swift */,
 			);
 			path = SLNetworkRoutes;
+			sourceTree = "<group>";
+		};
+		CD0706BF1C4B55DE00257236 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CD0706C01C4B561E00257236 /* SWAGLibrary-Bridging-Header.h */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +424,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheGeekProjekt.SWAGLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SWAGLibrary/Application/SWAGLibrary-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -429,6 +439,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheGeekProjekt.SWAGLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SWAGLibrary/Application/SWAGLibrary-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
