@@ -76,6 +76,22 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         return booksArray.count
     }
     
+    internal func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    internal func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let currentBook : SLBook = booksArray[indexPath.row]
+            
+            VTNetworkingHelper.sharedInstance().performRequestWithPath(SLNetworkRoutes.deleteBookAPIForBookAtURLString(currentBook.urlString!), withAuth: true, forMethod: "DELETE", withRequestJSONSerialized: true, withParams: nil, withCompletionHandler: { (response:VTNetworkResponse!) -> Void in
+                if response.isSuccessful {
+                    self.refreshBooks()
+                }
+            })
+        }
+    }
+    
     internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let currentBook : SLBook = booksArray[indexPath.row]
         
