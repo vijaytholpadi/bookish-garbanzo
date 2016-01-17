@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD07069F1C4B458300257236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07069E1C4B458300257236 /* AppDelegate.swift */; };
-		CD0706A11C4B458300257236 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0706A01C4B458300257236 /* ViewController.swift */; };
+		CD07069F1C4B458300257236 /* SLAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07069E1C4B458300257236 /* SLAppDelegate.swift */; };
 		CD0706A41C4B458300257236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0706A21C4B458300257236 /* Main.storyboard */; };
 		CD0706A71C4B458300257236 /* SWAGLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD0706A51C4B458300257236 /* SWAGLibrary.xcdatamodeld */; };
 		CD0706A91C4B458300257236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0706A81C4B458300257236 /* Assets.xcassets */; };
@@ -17,8 +16,7 @@
 
 /* Begin PBXFileReference section */
 		CD07069B1C4B458300257236 /* SWAGLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWAGLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD07069E1C4B458300257236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD0706A01C4B458300257236 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD07069E1C4B458300257236 /* SLAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAppDelegate.swift; sourceTree = "<group>"; };
 		CD0706A31C4B458300257236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD0706A61C4B458300257236 /* SWAGLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SWAGLibrary.xcdatamodel; sourceTree = "<group>"; };
 		CD0706A81C4B458300257236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,8 +54,6 @@
 		CD07069D1C4B458300257236 /* SWAGLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				CD07069E1C4B458300257236 /* AppDelegate.swift */,
-				CD0706A01C4B458300257236 /* ViewController.swift */,
 				CD0706B31C4B473700257236 /* Categories */,
 				CD0706B41C4B473700257236 /* Controllers */,
 				CD0706B51C4B473800257236 /* Library */,
@@ -204,8 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD0706A71C4B458300257236 /* SWAGLibrary.xcdatamodeld in Sources */,
-				CD0706A11C4B458300257236 /* ViewController.swift in Sources */,
-				CD07069F1C4B458300257236 /* AppDelegate.swift in Sources */,
+				CD07069F1C4B458300257236 /* SLAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

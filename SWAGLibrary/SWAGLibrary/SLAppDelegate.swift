@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  SLAppDelegate.swift
 //  SWAGLibrary
 //
 //  Created by Vijay Tholpadi on 1/17/16.
@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class SLAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
