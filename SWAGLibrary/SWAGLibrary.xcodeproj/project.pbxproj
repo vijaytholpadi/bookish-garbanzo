@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70B05C7C2EA34C03F77BFB1C /* libPods-SWAGLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B4EAA037040A923A65D8F7 /* libPods-SWAGLibrary.a */; };
 		CD07069F1C4B458300257236 /* SLAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07069E1C4B458300257236 /* SLAppDelegate.swift */; };
 		CD0706A41C4B458300257236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0706A21C4B458300257236 /* Main.storyboard */; };
 		CD0706A71C4B458300257236 /* SWAGLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD0706A51C4B458300257236 /* SWAGLibrary.xcdatamodeld */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78B4EAA037040A923A65D8F7 /* libPods-SWAGLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SWAGLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E649962010DA672AE7B7897 /* Pods-SWAGLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWAGLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SWAGLibrary/Pods-SWAGLibrary.debug.xcconfig"; sourceTree = "<group>"; };
+		CBD8B43A843FEF2B4BC67584 /* Pods-SWAGLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWAGLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-SWAGLibrary/Pods-SWAGLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		CD07069B1C4B458300257236 /* SWAGLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWAGLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD07069E1C4B458300257236 /* SLAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAppDelegate.swift; sourceTree = "<group>"; };
 		CD0706A31C4B458300257236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70B05C7C2EA34C03F77BFB1C /* libPods-SWAGLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24306D90A71CCD2C0204733A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78B4EAA037040A923A65D8F7 /* libPods-SWAGLibrary.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		767B98061BB70ED16D4526F1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E649962010DA672AE7B7897 /* Pods-SWAGLibrary.debug.xcconfig */,
+				CBD8B43A843FEF2B4BC67584 /* Pods-SWAGLibrary.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CD0706921C4B458300257236 = {
 			isa = PBXGroup;
 			children = (
 				CD07069D1C4B458300257236 /* SWAGLibrary */,
 				CD07069C1C4B458300257236 /* Products */,
+				767B98061BB70ED16D4526F1 /* Pods */,
+				24306D90A71CCD2C0204733A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD0706B01C4B458300257236 /* Build configuration list for PBXNativeTarget "SWAGLibrary" */;
 			buildPhases = (
+				5F98EA335F452B0AC94E333F /* Check Pods Manifest.lock */,
 				CD0706971C4B458300257236 /* Sources */,
 				CD0706981C4B458300257236 /* Frameworks */,
 				CD0706991C4B458300257236 /* Resources */,
+				8A207892CEEE0161A7E7783F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +219,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F98EA335F452B0AC94E333F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8A207892CEEE0161A7E7783F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SWAGLibrary/Pods-SWAGLibrary-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CD0706971C4B458300257236 /* Sources */ = {
@@ -311,6 +370,7 @@
 		};
 		CD0706B11C4B458300257236 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E649962010DA672AE7B7897 /* Pods-SWAGLibrary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SWAGLibrary/Info.plist;
@@ -324,6 +384,7 @@
 		};
 		CD0706B21C4B458300257236 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBD8B43A843FEF2B4BC67584 /* Pods-SWAGLibrary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SWAGLibrary/Info.plist;
@@ -354,6 +415,7 @@
 				CD0706B21C4B458300257236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
