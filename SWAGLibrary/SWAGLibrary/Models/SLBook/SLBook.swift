@@ -48,4 +48,14 @@ class SLBook: NSObject {
             }
         return booksArray
     }
+    
+    func updateCheckedOutDetailsWithDetails(book : [String:AnyObject]) {
+        if let lastCheckedOutDate = book["lastCheckedOut"]{
+            self.lastCheckedOutDate = lastCheckedOutDate as? String
+        }
+        
+        if let lastCheckedOutBy = book["lastCheckedOutBy"]{
+            self.lastCheckedOutBy = lastCheckedOutBy as? String
+        }
+    }
 }
