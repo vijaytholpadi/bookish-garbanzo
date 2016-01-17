@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7F5C197408069C1A3386C864"
+               BlueprintIdentifier = "F6CAD194D03189F09A5F6FC3"
                BuildableName = "Pods_SWAGLibrary.framework"
                BlueprintName = "Pods-SWAGLibrary"
                ReferencedContainer = "container:Pods.xcodeproj">
