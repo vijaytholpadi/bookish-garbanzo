@@ -22,32 +22,32 @@ class SLBookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        self.title = "Detail"
-        self.setupBookDetails()
-        self.setupNavigationBarButtons()
+        title = "Detail"
+        setupBookDetails()
+        setupNavigationBarButtons()
     }
     
     func setupBookDetails() {
-        self.bookTitleLabel.text = self.bookInContext?.title
-        self.bookAuthorLabel.text = self.bookInContext?.author
-        self.bookPublisherLabel.text = String("Publisher: " + (self.bookInContext?.publisher)!)
+        bookTitleLabel.text = self.bookInContext?.title
+        bookAuthorLabel.text = self.bookInContext?.author
+        bookPublisherLabel.text = String("Publisher: " + (self.bookInContext?.publisher)!)
         
         if let category = self.bookInContext?.category{
-            self.bookCategoriesLabel.text = String("Tags: " + category)
+            bookCategoriesLabel.text = String("Tags: " + category)
         }
         if let lastCheckedOutBy = self.bookInContext?.lastCheckedOutBy, lastCheckedOutDate = self.bookInContext?.lastCheckedOutDate{
-            self.bookLastCheckedOutLabel.text = (String("Last Checkout by: " + lastCheckedOutBy + " @ " + lastCheckedOutDate))
+            bookLastCheckedOutLabel.text = (String("Last Checkout by: " + lastCheckedOutBy + " @ " + lastCheckedOutDate))
         }
     }
     
     func setupNavigationBarButtons(){
         let sharebutton :UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareButtonPressed")
-        self.navigationItem.rightBarButtonItem = sharebutton
+        navigationItem.rightBarButtonItem = sharebutton
     }
     
     func shareButtonPressed(){
-        let message = String("Check this book out at the SWAGLibrary: " + (self.bookInContext?.title)!)
-        let bookURL = String(SLNetworkRoutes.rootURL + (self.bookInContext?.urlString)!)
+        let message = String("Check this book out at the SWAGLibrary: " + (bookInContext?.title)!)
+        let bookURL = String(SLNetworkRoutes.rootURL + (bookInContext?.urlString)!)
         let activityVC = UIActivityViewController(activityItems: [message, bookURL], applicationActivities: nil)
         presentViewController(activityVC, animated: true) { () -> Void in
         }

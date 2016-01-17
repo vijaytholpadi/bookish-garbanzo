@@ -21,17 +21,17 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Books"
+        title = "Books"
         tableView.dataSource = self;
         tableView.delegate = self;
         
-        self.setupNavigationBarButtons()
-        self.fetchAllBooks()
+        setupNavigationBarButtons()
+        fetchAllBooks()
     }
     
     internal func setupNavigationBarButtons() {
         let addButton :UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addButtonPressed")
-        self.navigationItem.leftBarButtonItem = addButton
+        navigationItem.leftBarButtonItem = addButton
     }
     
     internal func fetchAllBooks() {
@@ -46,7 +46,7 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     internal func addButtonPressed() {
-        let onboardBookVC = self.storyboard?.instantiateViewControllerWithIdentifier("SLOnboardBookViewContoller") as! SLOnboardBookViewContoller
+        let onboardBookVC = storyboard?.instantiateViewControllerWithIdentifier("SLOnboardBookViewContoller") as! SLOnboardBookViewContoller
         presentViewController(onboardBookVC, animated: true, completion: nil)
     }
     
@@ -55,7 +55,7 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let currentBook : SLBook = self.booksArray[indexPath.row]
+        let currentBook : SLBook = booksArray[indexPath.row]
         
         let tableViewcell = tableView.dequeueReusableCellWithIdentifier("booksTableViewCell")! as UITableViewCell
         tableViewcell.textLabel?.text = currentBook.title
@@ -64,16 +64,16 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let currentBook : SLBook = self.booksArray[indexPath.row]
+        let currentBook : SLBook = booksArray[indexPath.row]
         
-        let bookDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("SLBookDetailViewController") as! SLBookDetailViewController
+        let bookDetailVC = storyboard?.instantiateViewControllerWithIdentifier("SLBookDetailViewController") as! SLBookDetailViewController
         bookDetailVC.bookInContext = currentBook
-        self.navigationController?.pushViewController(bookDetailVC, animated: true)
+        navigationController?.pushViewController(bookDetailVC, animated: true)
         
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     func refreshBooks() {
-        self.fetchAllBooks()
+        fetchAllBooks()
     }
 }

@@ -26,13 +26,13 @@ class SLOnboardBookViewContoller: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let bookListNavVC = self.presentingViewController
+        let bookListNavVC = presentingViewController
         let bookListVC = bookListNavVC!.childViewControllers.first as! SLBookListViewController
-        self.delegate = bookListVC
+        delegate = bookListVC
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        if self.areAnyfieldFilled() {
+        if areAnyfieldFilled() {
             let unsavedChangesAlertController = UIAlertController(title: "Uh-oh!", message: "There are unsaved changes. Do you want to discard them?", preferredStyle: .Alert)
             let okAction = UIAlertAction(title: "OK", style: .Destructive, handler: { (alertAction: UIAlertAction) -> Void in
                 self.dismissViewController()
@@ -43,15 +43,15 @@ class SLOnboardBookViewContoller: UIViewController {
             
             presentViewController(unsavedChangesAlertController, animated: true, completion: nil)
         } else {
-            self.dismissViewController()
+            dismissViewController()
         }
     }
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
-        if self.areMandatoryFieldsEmpty() {
-            self.showInsufficientDetailsAlert()
+        if areMandatoryFieldsEmpty() {
+            showInsufficientDetailsAlert()
         } else {
-            self.addBook()
+            addBook()
         }
     }
     
@@ -67,11 +67,11 @@ class SLOnboardBookViewContoller: UIViewController {
     }
     
     func areMandatoryFieldsEmpty() -> Bool {
-        return ((self.titleTextField.text?.isEmpty)! || (self.authorTextField.text?.isEmpty)!)
+        return ((titleTextField.text?.isEmpty)! || (authorTextField.text?.isEmpty)!)
     }
     
     func areAnyfieldFilled() -> Bool {
-        return !(self.titleTextField.text?.isEmpty)! || !(self.authorTextField.text?.isEmpty)! || !(self.publisherTextField.text?.isEmpty)! || !(self.categoriesTextField.text?.isEmpty)!
+        return !(titleTextField.text?.isEmpty)! || !(authorTextField.text?.isEmpty)! || !(publisherTextField.text?.isEmpty)! || !(categoriesTextField.text?.isEmpty)!
     }
     
     func showInsufficientDetailsAlert() {
