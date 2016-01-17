@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70B05C7C2EA34C03F77BFB1C /* libPods-SWAGLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B4EAA037040A923A65D8F7 /* libPods-SWAGLibrary.a */; };
 		CD07069F1C4B458300257236 /* SLAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07069E1C4B458300257236 /* SLAppDelegate.swift */; };
 		CD0706A41C4B458300257236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0706A21C4B458300257236 /* Main.storyboard */; };
 		CD0706A71C4B458300257236 /* SWAGLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD0706A51C4B458300257236 /* SWAGLibrary.xcdatamodeld */; };
 		CD0706A91C4B458300257236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0706A81C4B458300257236 /* Assets.xcassets */; };
 		CD0706AC1C4B458300257236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0706AA1C4B458300257236 /* LaunchScreen.storyboard */; };
 		CD0706BE1C4B4C4800257236 /* SLNetworkRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0706BD1C4B4C4800257236 /* SLNetworkRoutes.swift */; };
+		E804B29BF9F078F28F3988FA /* Pods_SWAGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9358809B6CD3D42FE151823 /* Pods_SWAGLibrary.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		78B4EAA037040A923A65D8F7 /* libPods-SWAGLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SWAGLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E649962010DA672AE7B7897 /* Pods-SWAGLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWAGLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SWAGLibrary/Pods-SWAGLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 		CBD8B43A843FEF2B4BC67584 /* Pods-SWAGLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWAGLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-SWAGLibrary/Pods-SWAGLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		CD07069B1C4B458300257236 /* SWAGLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWAGLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +27,8 @@
 		CD0706AB1C4B458300257236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD0706AD1C4B458300257236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD0706BD1C4B4C4800257236 /* SLNetworkRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLNetworkRoutes.swift; sourceTree = "<group>"; };
+		CD0706C01C4B561E00257236 /* SWAGLibrary-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWAGLibrary-Bridging-Header.h"; sourceTree = "<group>"; };
+		E9358809B6CD3D42FE151823 /* Pods_SWAGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWAGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70B05C7C2EA34C03F77BFB1C /* libPods-SWAGLibrary.a in Frameworks */,
+				E804B29BF9F078F28F3988FA /* Pods_SWAGLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +46,7 @@
 		24306D90A71CCD2C0204733A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				78B4EAA037040A923A65D8F7 /* libPods-SWAGLibrary.a */,
+				E9358809B6CD3D42FE151823 /* Pods_SWAGLibrary.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,6 +184,7 @@
 				CD0706981C4B458300257236 /* Frameworks */,
 				CD0706991C4B458300257236 /* Resources */,
 				8A207892CEEE0161A7E7783F /* Copy Pods Resources */,
+				486D5AA01D5C746BAF5097D1 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -240,6 +242,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		486D5AA01D5C746BAF5097D1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SWAGLibrary/Pods-SWAGLibrary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5F98EA335F452B0AC94E333F /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
