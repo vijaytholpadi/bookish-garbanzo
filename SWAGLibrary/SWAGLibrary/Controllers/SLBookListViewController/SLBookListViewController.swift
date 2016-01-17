@@ -34,6 +34,7 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         VTNetworkingHelper.sharedInstance().performRequestWithPath(SLNetworkRoutes.getAllBooksAPI(), withAuth: true, withRequestJSONSerialized: true) { (response : VTNetworkResponse!) -> Void in
             if response.isSuccessful {
                 self.booksArray = SLBook.getBookArrayFromRawArray(response.data as! [[String : AnyObject]])
+                self.tableView.reloadData()
             } else {
                 
             }
@@ -49,7 +50,11 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let tableViewcell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("")!
+        let currentBook : SLBook = self.booksArray[indexPath.row]
+        
+        let tableViewcell = tableView.dequeueReusableCellWithIdentifier("booksTableViewCell")! as UITableViewCell
+        tableViewcell.textLabel?.text = currentBook.title
+        tableViewcell.detailTextLabel?.text = currentBook.author
         return tableViewcell;
     }
 }
