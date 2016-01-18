@@ -8,16 +8,14 @@ ___
 Target device needs to be iOS 8 or higher.
 ___
 #### Architecture details
-##### External Libraries:
-The following third party frameworks have been used in the project using Cocoapods
-* [AFNetworking](https://github.com/AFNetworking/AFNetworking)
-* [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager)
+##### External Libraries (managed using Cocoapods):
+- [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+- [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager)
 
 ##### View controllers:
-The application consists of mainly three screens
-* **SLBooksListViewController** -> Shows the list of all the books in the system. This is embedded in a UINavigationController as SLBooksDetailViewController will be pushed on this on item selection.
-* **SLBookDetailViewController** -> Shows all the details of a particular book and provides a provision to the user to checkout the particular book in his/her name. This screen also provides a share functionality to share the book using native sharing in iOS.
-* **SLOnboardBookViewController** -> Allows the user to onboard/Add a book to the system.
+- **SLBooksListViewController** -> Shows the list of all the books in the system. This is embedded in a UINavigationController as SLBooksDetailViewController will be pushed on this on item selection.
+- **SLBookDetailViewController** -> Shows all the details of a particular book and provides a provision to the user to checkout the particular book in his/her name. This screen also provides a share functionality to share the book using native sharing in iOS.
+- **SLOnboardBookViewController** -> Allows the user to onboard/Add a book to the system.
     * Mandatory fields: *Title, Author*
 	* Optional fields: *Publisher, Categories*
 
