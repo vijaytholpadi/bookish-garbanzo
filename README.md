@@ -5,7 +5,7 @@ ___
 The SWAG committee is looking for a way to track who has which book from their library. This App looks to solve that requirement in a simple way.
 ___
 #### Requirements
-Target device needs to be iOS 8 or higher.
+Target device needs to be running iOS 8 or higher.
 ___
 #### Architecture details
 ##### External Libraries (managed using Cocoapods):
