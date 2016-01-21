@@ -18,37 +18,38 @@ class SLBook: NSObject {
     var lastCheckedOutBy : String?
     var urlString : String?
     
+    //Designated initializer
     init(title: String, author: String) {
         self.title = title
         self.author = author
     }
     
+    ///Class method to parse the response and return an array of SLBook objects.
     class func getBookArrayFromRawArray(rawArray:[[String:AnyObject]]) -> [SLBook] {
-        
         var booksArray : [SLBook] = Array()
-            for item in rawArray {
-                let book : SLBook = SLBook.init(title: (item["title"] as? String)!, author: (item["author"] as? String)!)
+        for item in rawArray {
+            let book : SLBook = SLBook.init(title: (item["title"] as? String)!, author: (item["author"] as? String)!)
+            book.publisher = item["publisher"] as? String
             
-                book.publisher = item["publisher"] as? String
-                
-                if let category = item["categories"]{
-                    book.category = category as? String
-                }
-                
-                if let lastCheckedOutDate = item["lastCheckedOut"]{
-                    book.lastCheckedOutDate = lastCheckedOutDate as? String
-                }
-                
-                if let lastCheckedOutBy = item["lastCheckedOutBy"]{
-                    book.lastCheckedOutBy = lastCheckedOutBy as? String
-                }
-
-                book.urlString = item["url"] as? String
-                booksArray.append(book)
+            if let category = item["categories"]{
+                book.category = category as? String
             }
+            
+            if let lastCheckedOutDate = item["lastCheckedOut"]{
+                book.lastCheckedOutDate = lastCheckedOutDate as? String
+            }
+            
+            if let lastCheckedOutBy = item["lastCheckedOutBy"]{
+                book.lastCheckedOutBy = lastCheckedOutBy as? String
+            }
+            
+            book.urlString = item["url"] as? String
+            booksArray.append(book)
+        }
         return booksArray
     }
     
+    ///Instance method to update the checkout details of a book.
     func updateCheckedOutDetailsWithDetails(book : [String:AnyObject]) {
         if let lastCheckedOutDate = book["lastCheckedOut"]{
             self.lastCheckedOutDate = lastCheckedOutDate as? String
