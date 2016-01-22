@@ -29,7 +29,7 @@ ___
 #### Possible enhancements
 - Store data in *Core data*, if the data becomes bigger and needs to be persisted
 - Improve UI with *Custom UIViewController transitions*
-- Verbose commenting to use the code documentation power of Swift.
+- ~~Verbose commenting to use the code documentation power of Swift.~~ - Done (as of commit 9edbf77)
 ___
 #### Known issues
 - ~~The checkout screen accepts empty name to checkout~~ - Fixed.
