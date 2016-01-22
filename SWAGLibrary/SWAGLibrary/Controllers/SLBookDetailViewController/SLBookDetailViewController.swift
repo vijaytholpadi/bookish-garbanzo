@@ -21,42 +21,20 @@ class SLBookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
         title = "Detail"
         setupBookDetails()
         setupNavigationBarButtons()
     }
     
-    func setupBookDetails() {
-        bookTitleLabel.text = self.bookInContext?.title
-        bookAuthorLabel.text = self.bookInContext?.author
-        bookPublisherLabel.text = String("Publisher: " + (self.bookInContext?.publisher)!)
-        
-        if let category = self.bookInContext?.category{
-            bookCategoriesLabel.text = String("Tags: " + category)
-        }
-        if let lastCheckedOutBy = self.bookInContext?.lastCheckedOutBy, lastCheckedOutDate = self.bookInContext?.lastCheckedOutDate{
-            bookLastCheckedOutLabel.text = (String("Last Checkout by: " + lastCheckedOutBy + " @ " + lastCheckedOutDate))
-        }
-    }
-    
-    func setupNavigationBarButtons(){
-        let sharebutton :UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareButtonPressed")
-        navigationItem.rightBarButtonItem = sharebutton
-    }
-    
-    func shareButtonPressed(){
-        let message = String("Check this book out at the SWAGLibrary: " + (bookInContext?.title)!)
-        let bookURL = String(SLNetworkRoutes.rootURL + (bookInContext?.urlString)!)
-        let activityVC = UIActivityViewController(activityItems: [message, bookURL], applicationActivities: nil)
-        presentViewController(activityVC, animated: true) { () -> Void in
-        }
-    }
-    
+    //MARK: - IBAction Methods
+    ///IBAction for Checkout Button
     @IBAction func checkoutButtonPressed(sender: AnyObject) {
         let checkoutAlertController = UIAlertController(title: "Almost there", message: "Please enter your name", preferredStyle: .Alert)
         checkoutAlertController.addTextFieldWithConfigurationHandler { (textfield:UITextField) -> Void in
             textfield.placeholder = "Name"
+            
+            //Adding a target-Action here to detect changes to the Name Textfield to handle the case of empty string
             textfield.addTarget(self, action: "alertControllerTextChanged:", forControlEvents: .EditingChanged)
         }
         
@@ -71,7 +49,7 @@ class SLBookDetailViewController: UIViewController {
                     self.bookInContext?.updateCheckedOutDetailsWithDetails(response.data as! [String : AnyObject])
                     self.setupBookDetails()
                 } else {
-                
+                    
                 }
             })
         }
@@ -81,11 +59,43 @@ class SLBookDetailViewController: UIViewController {
         presentViewController(checkoutAlertController, animated: true, completion: nil)
     }
     
+    //MARK: - Instance Methods
+    ///Instance method to setup all the details of the present book in context
+    func setupBookDetails() {
+        bookTitleLabel.text = self.bookInContext?.title
+        bookAuthorLabel.text = self.bookInContext?.author
+        bookPublisherLabel.text = String("Publisher: " + (self.bookInContext?.publisher)!)
+        
+        if let category = self.bookInContext?.category{
+            bookCategoriesLabel.text = String("Tags: " + category)
+        }
+        if let lastCheckedOutBy = self.bookInContext?.lastCheckedOutBy, lastCheckedOutDate = self.bookInContext?.lastCheckedOutDate{
+            bookLastCheckedOutLabel.text = (String("Last Checkout by: " + lastCheckedOutBy + " @ " + lastCheckedOutDate))
+        }
+    }
+
+    ///Instance method to setup NavigationBarButton Items
+    func setupNavigationBarButtons(){
+        let sharebutton :UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareButtonPressed")
+        navigationItem.rightBarButtonItem = sharebutton
+    }
+    
+    //MARK: - Target-Action methods
+    ///Target-Action method for Share Button
+    func shareButtonPressed(){
+        let message = String("Check this book out at the SWAGLibrary: " + (bookInContext?.title)!)
+        let bookURL = String(SLNetworkRoutes.rootURL + (bookInContext?.urlString)!)
+        let activityVC = UIActivityViewController(activityItems: [message, bookURL], applicationActivities: nil)
+        presentViewController(activityVC, animated: true) { () -> Void in
+        }
+    }
+
+    ///Target-Action method to set the state of the OK Button based on the text in the Name textfield
     func alertControllerTextChanged(sender:AnyObject) {
         let alertTF = sender as! UITextField
         var responder : UIResponder = alertTF
         while !(responder is UIAlertController) {
-        responder = responder.nextResponder()!
+            responder = responder.nextResponder()!
         }
         let alertController = responder as! UIAlertController
         (alertController.actions[1] as UIAlertAction).enabled = (alertTF.text != "")
