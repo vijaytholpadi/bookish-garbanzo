@@ -30,6 +30,9 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         fetchAllBooks()
     }
     
+    
+    //MARK: - Instance methods
+    ///Instance method to setup NavigationBarButton Items
     internal func setupNavigationBarButtons() {
         let addButton : UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addButtonPressed")
         navigationItem.leftBarButtonItem = addButton
@@ -38,6 +41,7 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         navigationItem.rightBarButtonItem = deleteAllButton
     }
     
+    ///Instance method to fetch all the books for display in the tableview
     internal func fetchAllBooks() {
         VTNetworkingHelper.sharedInstance().performRequestWithPath(SLNetworkRoutes.getAllBooksAPI(), withAuth: true, withRequestJSONSerialized: true) { (response : VTNetworkResponse!) -> Void in
             if response.isSuccessful {
@@ -49,15 +53,20 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    //MARK: - Target-Action methods
+    ///Target-Action method for Add Button
     internal func addButtonPressed() {
         let onboardBookVC = storyboard?.instantiateViewControllerWithIdentifier("SLOnboardBookViewContoller") as! SLOnboardBookViewContoller
         presentViewController(onboardBookVC, animated: true, completion: nil)
     }
     
+    ///Target-Action method for Delete Button
     internal func deleteAllButtonPressed() {
         let deleteAllConfirmationAlertController = UIAlertController(title: "Warning", message: "Are you sure you want to delete all the books?", preferredStyle: .Alert)
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (UIAlertAction) -> Void in
         }
+        
         let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (UIAlertAction) -> Void in
             VTNetworkingHelper.sharedInstance().performRequestWithPath(SLNetworkRoutes.deleteAllBooksAPI(), withAuth: true, forMethod: "DELETE", withRequestJSONSerialized: true, withParams: nil) { (response:VTNetworkResponse!) -> Void in
                 if response.isSuccessful {
@@ -72,6 +81,7 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         presentViewController(deleteAllConfirmationAlertController, animated: true, completion: nil)
     }
     
+    //MARK: - UITableViewDataSource methods
     internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return booksArray.count
     }
@@ -101,6 +111,7 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         return tableViewcell;
     }
     
+    //MARK: - UITableViewDelegate methods
     internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let currentBook : SLBook = booksArray[indexPath.row]
         
@@ -111,6 +122,8 @@ class SLBookListViewController: UIViewController, UITableViewDataSource, UITable
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    //MARK: - SLOnboardBookDelegate method
+    ///Delegate method to refetch all the books incase there is any addtion/Deletion.
     func refreshBooks() {
         fetchAllBooks()
     }
