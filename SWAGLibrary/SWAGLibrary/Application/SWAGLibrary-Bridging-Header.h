@@ -9,9 +9,9 @@
 #ifndef SWAGLibrary_Bridging_Header_h
 #define SWAGLibrary_Bridging_Header_h
 
-#import "VTError.h"
 #import "VTNetworkingHelper.h"
 #import "VTNetworkResponse.h"
+#import "VTError.h"
 
 
 #endif /* SWAGLibrary_Bridging_Header_h */
