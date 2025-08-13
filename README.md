@@ -2,7 +2,7 @@ Documentation
 ==
 ___
 #### Introduction
-The SWAG committee is looking for a way to track who has which book from their library. This App looks to solve that requirement in a simple way.
+The SWAG committee is looking for a way to track who has which book from their library. 
 ___
 #### Requirements
 Target device needs to be running iOS 8 or higher.
